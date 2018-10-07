@@ -1,0 +1,20 @@
+{
+  "name": "example-proxy",
+  "version": "0.0.0",
+  "description": "Example vrpc-node proxy",
+  "main": "start.sh",
+  "repository": "https://github.com/JacobTheEvans/react-vrpc-example",
+  "author": "Jacob Evans",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "uuid": "^3.3.2",
+    "vrpc": "^2.0.0-alpha.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha \"test/*.js\" --timeout 5000 --exit"
+  }
+}
