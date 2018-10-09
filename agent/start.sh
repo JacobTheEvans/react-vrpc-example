@@ -4,4 +4,4 @@
 cd $(dirname `[[ $0 = /* ]] && echo "$0" || echo "$PWD/${0#./}"`)
 
 echo 'Starting vrpc proxy'
-./node_modules/.bin/vrpc-agent-js -t 'react/vrpc/example' -f './binding.js' react-app-vrpc-example
+./node_modules/.bin/vrpc-agent-js -t 'react/vrpc/example' -f './binding.js' -b mqtt://broker.hivemq.com react-app-vrpc-example

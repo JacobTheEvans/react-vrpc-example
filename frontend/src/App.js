@@ -4,7 +4,7 @@ import Test from './components/Todo'
 
 const VrpcProvider = createVrpcProvider({
   topicPrefix: 'react/vrpc/example',
-  brokerUrl: 'ws://test.mosquitto.org:8080' // ws and 8080 to work over websockets
+  brokerUrl: 'ws://broker.hivemq.com:8000/mqtt' // ws and 8080 to work over websockets
 })
 
 function App () {
