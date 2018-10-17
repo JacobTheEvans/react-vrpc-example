@@ -5,16 +5,19 @@ import Item from './Item'
 const Container = styled.div`
   width: 100%;
 `
-function List ({ items }) {
+function List ({ items, handleDelete, handleUpdate }) {
   return (
     <Container>
       {
-        items.map(({ title, price, description }, i) => (
+        items.map(({ id, title, price, description}, i) => (
           <Item
-            key={title + i}
+            key={id}
+            id={id}
             title={title}
             price={price}
             description={description}
+            handleDelete={() => handleDelete(id)}
+            handleUpdate={(updateData) => handleUpdate(id, updateData)}
           />
         ))
       }

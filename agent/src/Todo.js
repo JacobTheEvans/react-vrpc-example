@@ -21,6 +21,7 @@ class Todo {
   readAll () {
     const arr = this._store.readAll()
     return arr.map(arr => ({
+      id: arr[0],
       ...arr[1]
     }))
   }

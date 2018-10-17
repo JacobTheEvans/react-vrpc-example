@@ -59,7 +59,7 @@ class Todo extends Component {
     const { items } = this.state
     return (
       <Container>
-        <Form handleCreate={this.handleCreation} />
+        <Form handleSubmit={this.handleCreation} />
         <List
           handleDelete={this.handleDelete}
           handleUpdate={this.handleUpdate}

@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
+import Form from './Form'
 
 const ItemContainer = styled.div`
   width: 100%;
   margin: 50px 0;
   border: 1px solid #bbb;
   padding: 20px;
+  position: relative;
 `
 
 const UpperContainer = styled.div`
   display: flex;
+  margin-top: 5px;
 `
 
 const Title = styled.h2`
@@ -25,16 +28,78 @@ const Description = styled.p`
   font-size: 16px;
 `
 
-function List ({ title, price, description }) {
-  return (
-    <ItemContainer>
-      <UpperContainer>
-        <Title>{title}</Title>
-        {price && <Price>Price: {price}</Price>}
-      </UpperContainer>
-      {description && <Description>{description}</Description>}
-    </ItemContainer>
-  )
+const Toolbar = styled.div`
+  border: none;
+  background: none;
+  font-size: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  font-size: 15px;
+`
+const Button = styled.button`
+  border: none;
+  background: none;
+`
+
+class Item extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      edit: false,
+    }
+    this.toggleEdit = this.toggleEdit.bind(this)
+  }
+
+  toggleEdit () {
+    this.setState(prevState => ({
+      edit: !prevState.edit
+    }))
+  }
+
+  render () {
+    const {
+      title,
+      price,
+      description,
+      handleDelete,
+      handleUpdate
+    } = this.props
+    const { edit } = this.state
+    return (
+      <ItemContainer>
+        {!edit && (
+          <div>
+            <Toolbar>
+              <Button onClick={this.toggleEdit}>
+                Edit
+              </Button>
+              <Button onClick={handleDelete}>
+                Remove
+              </Button>
+            </Toolbar>
+            <UpperContainer>
+              <Title>{title}</Title>
+              {price && <Price>Price: ${price}</Price>}
+            </UpperContainer>
+            {description && <Description>{description}</Description>}
+          </div>
+        )}
+        {edit && (
+          <Form
+            title={title}
+            price={price}
+            description={description}
+            handleSubmit={(data) => {
+              handleUpdate(data)
+              this.toggleEdit()
+            }}
+          />
+        )}
+      </ItemContainer>
+    )
+  }
 }
 
-export default List
+export default Item

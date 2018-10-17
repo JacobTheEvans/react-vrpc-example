@@ -32,7 +32,6 @@ const Button = styled.button`
   font-size: 11px;
   font-weight: 600;
   line-height: 38px;
-  letter-spacing: .1rem;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
@@ -67,7 +66,7 @@ class Form extends Component {
 
   async handleSubmit (e) {
     e.preventDefault()
-    await this.props.handleCreate(this.state)
+    await this.props.handleSubmit(this.state)
     this.setState({
       title: '',
       price: '',
