@@ -38,8 +38,8 @@ class Todo {
     this._store.update(id, item)
   }
 
-  delete (key) {
-    this._store.delete(key)
+  delete (id) {
+    this._store.delete(id)
   }
 
 }
