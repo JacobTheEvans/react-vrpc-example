@@ -3,7 +3,7 @@ import { createVrpcProvider } from 'react-vrpc'
 import Test from './components/Todo'
 
 const VrpcProvider = createVrpcProvider({
-  topicPrefix: 'react/vrpc/example',
+  topicPrefix: 'todoexample',
   brokerUrl: 'ws://broker.hivemq.com:8000/mqtt' // ws and 8080 to work over websockets
 })
 

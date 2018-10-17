@@ -7,9 +7,12 @@ import List from './List'
 const Container = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   max-width: 850px;
+  padding: 10px 50px;
+  margin: auto;
 `
 
 class Todo extends Component {
@@ -18,24 +21,48 @@ class Todo extends Component {
     this.state = {
       items: []
     }
+    this.loadTodoItems = this.loadTodoItems.bind(this)
+    this.handleCreation = this.handleCreation.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
+    this.handleUpdate = this.handleUpdate.bind(this)
   }
 
   async componentDidMount () {
-    // console.log(this.props)
+    this.loadTodoItems()
+  }
+
+  async loadTodoItems () {
     const { todo } = this.props
     const items = await todo.readAll()
     this.setState({ items })
   }
 
-  render () {
+  async handleCreation (newItemData) {
     const { todo } = this.props
+    await todo.create(newItemData)
+    this.loadTodoItems()
+  }
+
+  async handleDelete (id) {
+    const { todo } = this.props
+    await todo.delete(id)
+    this.loadTodoItems()
+  }
+
+  async handleUpdate (id, updateItemData) {
+    const { todo } = this.props
+    await todo.update(id, updateItemData)
+    this.loadTodoItems()
+  }
+
+  render () {
     const { items } = this.state
     return (
       <Container>
-        <Form handleCreation={todo.create} />
+        <Form handleCreate={this.handleCreation} />
         <List
-          handleDelete={todo.delete}
-          handleUpdate={todo.update}
+          handleDelete={this.handleDelete}
+          handleUpdate={this.handleUpdate}
           items={items}
         />
       </Container>
