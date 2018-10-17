@@ -57,3 +57,9 @@ the [documentation for VRPC](). Once this script is ran the frontend will be
 able to make rpc calls to the running agent.
 
 ## frontend
+The frontend folder is where you will find the react app that makes remote
+procedure calls to the agent. It is important to realize it makes a remote
+instance on the agents, calls methods on that instance and then it pipped the
+result. That means that even on refresh of the frontend todo items persist just
+like they would with an http server because the code is running on the agent
+not in the browser.
