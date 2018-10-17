@@ -17,7 +17,6 @@ const Input = styled.input`
   background-color: #fff;
   background-image: none;
   border: 1px solid #bbb;
-  border-radius: 2px;
   margin: 20px 3px;
   font-size: 16px;
 `
@@ -36,7 +35,6 @@ const Button = styled.button`
   text-decoration: none;
   white-space: nowrap;
   background-color: transparent;
-  border-radius: 4px;
   border: 1px solid #bbb;
   cursor: pointer;
   -webkit-box-sizing: border-box;
@@ -51,7 +49,7 @@ class Form extends Component {
     super(props)
     this.state = {
       title: props.title || '',
-      price: props.price || 0,
+      price: props.price || '',
       description: props.description || ''
     }
     this.handleUpdate = this.handleUpdate.bind(this)

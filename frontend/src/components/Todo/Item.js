@@ -36,11 +36,11 @@ const Toolbar = styled.div`
   top: 5px;
   right: 5px;
   cursor: pointer;
-  font-size: 15px;
 `
 const Button = styled.button`
   border: none;
   background: none;
+  font-size: 20px;
 `
 
 class Item extends Component {
@@ -73,10 +73,10 @@ class Item extends Component {
           <div>
             <Toolbar>
               <Button onClick={this.toggleEdit}>
-                Edit
+                <i className='fa fa-pencil' aria-hidden='true' />
               </Button>
               <Button onClick={handleDelete}>
-                Remove
+                <i className='fa fa-times' aria-hidden='true' />
               </Button>
             </Toolbar>
             <UpperContainer>

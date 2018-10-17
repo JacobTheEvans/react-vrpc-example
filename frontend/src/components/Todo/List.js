@@ -4,6 +4,7 @@ import Item from './Item'
 
 const Container = styled.div`
   width: 100%;
+  min-height: 300px;
 `
 function List ({ items, handleDelete, handleUpdate }) {
   return (

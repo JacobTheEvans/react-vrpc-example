@@ -1,6 +1,8 @@
 import React from 'react'
 import { createVrpcProvider } from 'react-vrpc'
-import Test from './components/Todo'
+import Header from './components/common/Header'
+import Footer from './components/common/Footer'
+import Todo from './components/Todo'
 
 const VrpcProvider = createVrpcProvider({
   topicPrefix: 'todoexample',
@@ -10,7 +12,15 @@ const VrpcProvider = createVrpcProvider({
 function App () {
   return (
     <VrpcProvider>
-      <Test />
+      <Header
+        title={'Vrpc Todo'}
+        slogan={'Todo with just code'}
+      />
+      <Todo />
+      <Footer
+        author={'Jacob Evans'}
+        website={'http://jacobtheevans.com'}
+      />
     </VrpcProvider>
   )
 }
